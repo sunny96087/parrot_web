@@ -46,7 +46,7 @@ import {
 }
 
 .custom-dialog {
-  @apply border-yellow border-[5px];
+  @apply border-[5px];
   position: relative;
   background-color: #fff;
   /* backdrop-filter: blur(4px); */
