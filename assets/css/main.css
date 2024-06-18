@@ -1,0 +1,267 @@
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@100..900&display=swap');
+
+:root {
+  --color-blue1: #e9f1fe;
+  --color-blue2: #c4d7ed;
+  --color-blue3: #abc8e2;
+  --color-blue4: #375d81;
+  --color-blue5: #183152;
+
+  --color-red1: #ffaeaa;
+  --color-red2: #ed6f69;
+
+  --color-bg: #fff6ea;
+}
+
+body {
+  font-family: 'Noto Sans TC', sans-serif;
+  letter-spacing: 1.05px;
+  background: var(--color-bg);
+}
+
+/* 共用消樣式 */
+input:focus-visible {
+  outline: none;
+}
+
+textarea:focus-visible {
+  outline: none;
+}
+
+select:focus-visible {
+  outline: none;
+}
+
+/* 圖片通用 */
+.pic-auto {
+  width: 100%;
+  height: auto;
+  object-fit: cover;
+  vertical-align: middle;
+}
+
+/* 限制最大寬度 !> 1200px, 通常搭配 px-5 使用 */
+.page-max-w {
+  @apply mx-auto w-full max-w-[1200px];
+}
+
+/* hover 效果 */
+/* hover 常用的 hover:bg-[#00000017] */
+.hover-opacity {
+  @apply transform duration-200 hover:opacity-80;
+}
+
+.hover-auto {
+  @apply transform duration-200;
+}
+
+/* ? btn 按鈕 */
+.btn-black-outline {
+  @apply text-nowrap border-2 border-black px-8 py-3 text-[24px] text-black hover:bg-black hover:text-white md:px-20 md:py-4;
+}
+
+.btn-black-outline-small {
+  @apply text-nowrap border-2 border-black px-2 py-3 text-[20px] text-black hover:bg-black hover:text-white md:px-4;
+}
+
+.btn-black-outline-md {
+  @apply text-nowrap border-2 border-black px-2 py-3 text-[20px] text-black hover:bg-black hover:text-white md:px-8;
+}
+
+.btn-black {
+  @apply hover:text-yellow text-nowrap bg-black px-8 py-3 text-[24px] text-white md:px-20 md:py-4;
+}
+
+.btn-black-small {
+  @apply hover:text-yellow text-nowrap bg-black px-2 py-3 text-[20px] text-white md:px-4;
+}
+
+.btn-black-md {
+  @apply hover:text-yellow text-nowrap bg-black px-2 py-3 text-[20px] text-white md:px-8;
+}
+
+.btn-black-md-focus {
+  @apply text-yellow text-nowrap bg-black px-2 py-3 text-[20px] md:px-8;
+}
+
+.btn-yellow {
+  @apply bg-yellow hover:text-yellow text-nowrap px-10 py-2 text-[24px] font-bold text-black hover:bg-black md:px-20 md:py-4;
+}
+
+.btn-yellow-big {
+  @apply bg-yellow flex items-center gap-2 text-nowrap px-8 py-3 text-[24px] font-bold text-black md:text-[36px];
+}
+
+/* ? 彈窗 Modal z-100 */
+.modal-bg {
+  @apply fixed inset-0 z-[100] flex items-center justify-center bg-black bg-opacity-40 p-5;
+}
+
+.modal-box-white {
+  @apply border-yellow relative max-h-full w-full max-w-[500px] border-[5px] bg-white p-[30px] pt-12 md:min-w-[500px];
+}
+
+.modal-box-black {
+  @apply relative max-h-full w-full max-w-[740px] overflow-y-auto border-[5px] border-white bg-black p-4 pt-12 text-white md:min-w-[740px] md:p-[30px];
+}
+
+.modal-top {
+  @apply mb-12 flex items-center justify-between;
+}
+
+.modal-title {
+  @apply text-[24px] font-medium;
+}
+
+.modal-footer {
+  @apply mt-[30px] flex justify-center gap-4;
+}
+
+/* ? 確認框 checkbox */
+/* 隱藏原生的 checkbox */
+input[type='checkbox'] {
+  appearance: none;
+  -webkit-appearance: none;
+  position: relative;
+  width: 24px;
+  height: 24px;
+}
+
+/* 創建一個新的方塊來代替 checkbox */
+input[type='checkbox']:before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 24px;
+  height: 24px;
+  border: 1px solid #000;
+  box-sizing: border-box;
+  border-radius: 3px;
+}
+
+/* 當 checkbox 被選中時，改變顏色 */
+input[type='checkbox']:checked:before {
+  @apply border-tag-red bg-red;
+}
+
+/* 當 checkbox 被選中時，顯示一個勾勾 */
+input[type='checkbox']:checked:after {
+  content: '';
+  position: absolute;
+  top: 44%;
+  left: 50%;
+  width: 8px;
+  height: 14px;
+  border: solid white;
+  border-width: 0 2.5px 2.5px 0;
+  transform: translate(-50%, -50%) rotate(45deg);
+  z-index: 20;
+}
+
+/* ? 輸入框 input */
+.flex-col-1 {
+  @apply flex flex-col flex-wrap gap-1;
+}
+
+.input-label {
+  @apply text-[18px] font-bold;
+}
+
+.input-label-mark {
+  @apply text-red;
+}
+
+.input-bottom-line {
+  @apply border-b-[1px] border-black px-[10px] py-2;
+}
+
+.input-note-red {
+  @apply text-red text-[14px];
+}
+
+/* ? radio 單選框 */
+.label-radio {
+  @apply flex items-center gap-2;
+}
+
+/* 隱藏原始的 radio button */
+.label-radio input[type='radio'] {
+  display: none;
+}
+
+/* 創建一個新的 radio button */
+.label-radio input[type='radio'] + span {
+  position: relative;
+  display: inline-block;
+  width: 18px;
+  height: 18px;
+  border: 2px solid #ccc;
+  border-radius: 50%;
+}
+
+/* 當 radio button 被選中時，改變邊框顏色 */
+.label-radio input[type='radio']:checked + span {
+  @apply border-red;
+}
+
+/* 當 radio button 被選中時，創建一個新的內部點 */
+.label-radio input[type='radio']:checked + span:after {
+  @apply bg-red;
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  transform: translate(-50%, -50%);
+}
+
+/* ? 下拉選單 select */
+/* .select {
+  @apply relative w-full border border-black px-3 py-2 text-[20px];
+  appearance: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  background: url('~/assets/images/arrow-down.svg') no-repeat right center;
+  background-size: 12px;
+  background-position: calc(100% - 12px) center;
+} */
+
+/* ? info 純資訊頁面樣式 */
+.info-block {
+  @apply flex flex-col gap-5 md:gap-[30px];
+}
+
+.info-block-item {
+  @apply py-3 md:py-5;
+}
+
+.info-block-item-title {
+  @apply mb-5 text-center text-[20px] font-bold md:mb-[30px] md:text-[24px];
+}
+
+.info-block-item-text {
+  @apply leading-[36px] md:text-[18px];
+}
+
+.info-block-item-text-mt {
+  @apply mt-4 md:mt-8;
+}
+
+.info-block-item-li {
+  @apply ml-5 list-disc;
+}
+
+.info-block-item-li-num {
+  @apply ml-5 list-decimal;
+}
+
+.text-indent-2ch {
+  text-indent: 4ch;
+}
+
+.info-hr {
+  @apply border-tag-gray mt-5 w-full border-[0.5px];
+}
