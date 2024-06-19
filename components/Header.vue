@@ -1,179 +1,102 @@
 <script setup lang="ts">
 const router = useRouter()
+const route = useRoute()
 
-const menu = ref(false)
-
+// 選單變數
 const menuOpen = ref(false)
 
+// 選單開關
 const toggleMenu = () => {
   menuOpen.value = !menuOpen.value
 }
+
+// 監聽路由的 path 變化, 換頁時自動關閉選單
+watch(
+  () => route.path,
+  (currentPath, previousPath) => {
+    if (menuOpen.value) {
+      toggleMenu()
+    }
+  }
+)
 </script>
 
 <template>
-  <div class="nav-bg sticky top-0 z-20 py-3">
-    <div class="m-auto flex max-w-[1200px] items-center justify-between px-6">
-      <nuxtLink to="/" class="z-20 w-[48px] xl:w-[84px]">
-        <!-- <img src="~/assets/images/logo.png" alt="logo" class="pic-auto" /> -->
-      </nuxtLink>
+  <nuxt-link to="/" class="logo fixed left-5 top-2 w-[32px] lg:w-[40px]">
+    <img src="~/assets/images/logo.svg" alt="" class="pic-auto" />
+  </nuxt-link>
+  <div class="relative">
+    <!-- * 選單按鈕 -->
+    <Transition name="fade">
+      <button v-show="!menuOpen" @click="toggleMenu" class="nav-btn">
+        <Icon name="ph:hand-tap" size="20"></Icon>
 
-      <div class="hidden items-center justify-center gap-10 xl:flex">
-        <div class="flex items-center justify-center gap-10 text-[#231815]">
-          <nuxtLink to="/ichibanKuji" class="nav-item-pc" exact-active-class="font-medium"
-            >一番賞</nuxtLink
-          >
-          <!-- <nuxtLink to="/" class="nav-item-pc" exact-active-class="font-medium">盲盒</nuxtLink> -->
-          <nuxtLink to="/treasure" class="nav-item-pc" exact-active-class="font-medium"
-            >賞品盒</nuxtLink
-          >
-          <nuxtLink to="/winners" class="nav-item-pc" exact-active-class="font-medium"
-            >即時榜單
-          </nuxtLink>
-          <nuxtLink to="/gift" class="nav-item-pc" exact-active-class="font-medium"
-            >每日簽到</nuxtLink
-          >
-          <nuxtLink to="/news" class="nav-item-pc" exact-active-class="font-medium"
-            >最新消息</nuxtLink
-          >
-        </div>
-        <div class="flex items-center justify-center gap-3">
-          <nuxtLink to="/profile" class="nav-item-btn-full-pc">儲值</nuxtLink>
-          <nuxtLink to="/login" class="nav-item-btn-pc">登入</nuxtLink>
-          <nuxtLink to="/register" class="nav-item-btn-pc">註冊</nuxtLink>
-        </div>
-        <div class="flex items-center justify-center gap-2">
-          <a href="#"><Icon name="mdi:facebook-box" size="40"></Icon></a>
-          <a href="#"><Icon name="mdi:instagram" size="40"></Icon></a>
-          <a href="#"><Icon name="la:line" size="46"></Icon></a>
-        </div>
-      </div>
-      <!-- * 手機版選單按鈕 -->
-      <button @click="toggleMenu" class="z-20 xl:hidden">
-        <div class="hamburger" :class="{ open: menuOpen }">
-          <div></div>
-          <div></div>
-          <div></div>
-        </div>
+        <div v-if="route.path === '/'">首頁</div>
+        <div v-else-if="route.path === '/calculator'">食物計算機</div>
+        <div v-else-if="route.path === '/food'">營養指南</div>
+        <div v-else-if="route.path === '/bird'">百科全書</div>
+        <div v-else-if="route.path === '/hospital'">醫護站</div>
+        <div v-else="route.path === '/connect'">聯繫我們</div>
       </button>
-    </div>
+    </Transition>
 
-    <!-- * 手機版選單 -->
-    <transition name="slide">
-      <div
-        v-show="menuOpen"
-        class="fixed inset-0 z-10 h-screen w-full overflow-hidden bg-black bg-opacity-20"
-      >
-        <div
-          class="menu absolute left-0 top-0 flex w-full flex-col items-center bg-white py-6 pt-[70px] shadow-lg"
+    <!-- * 選單 -->
+    <Transition name="fade">
+      <div v-show="menuOpen" class="nav-menu">
+        <button class="nav-menu-item" @click="toggleMenu">CLOSE</button>
+        <nuxt-link class="nav-menu-item" exact-active-class="bg-blue4 bg-opacity-15" to="/"
+          >首頁</nuxt-link
         >
-          <div class="mb-2 flex flex-col items-center justify-center gap-3">
-            <nuxtLink to="/profile" class="nav-item-btn-full-pc w-[160px] text-center"
-              >儲值</nuxtLink
-            >
-            <div class="flex items-center justify-center gap-3">
-              <nuxtLink to="/login" class="nav-item-btn-pc">登入</nuxtLink>
-              <nuxtLink to="/register" class="nav-item-btn-pc">註冊</nuxtLink>
-            </div>
-          </div>
-          <nuxtLink to="/ichibanKuji" class="nav-item-mb" exact-active-class="bg-slate-100"
-            >一番賞</nuxtLink
-          >
-          <!-- <nuxtLink to="/kuji" class="nav-item-mb" exact-active-class="bg-slate-100">盲盒</nuxtLink> -->
-          <nuxtLink to="/treasure" class="nav-item-mb" exact-active-class="bg-slate-100"
-            >賞品盒</nuxtLink
-          >
-          <nuxtLink to="/winners" class="nav-item-mb" exact-active-class="bg-slate-100"
-            >即時榜單</nuxtLink
-          >
-          <nuxtLink to="/gift" class="nav-item-mb" exact-active-class="bg-slate-100"
-            >每日簽到</nuxtLink
-          >
-          <nuxtLink to="/news" class="nav-item-mb" exact-active-class="bg-slate-100"
-            >最新消息</nuxtLink
-          >
-          <div class="mt-2 flex items-center justify-center gap-2">
-            <a href="#"><Icon name="mdi:facebook-box" size="40"></Icon></a>
-            <a href="#"><Icon name="mdi:instagram" size="40"></Icon></a>
-            <a href="#"><Icon name="la:line" size="46"></Icon></a>
-          </div>
-        </div>
+        <nuxt-link
+          class="nav-menu-item"
+          exact-active-class="bg-blue4 bg-opacity-15"
+          to="/calculator"
+          >食物計算機</nuxt-link
+        >
+        <nuxt-link class="nav-menu-item" exact-active-class="bg-blue4 bg-opacity-15" to="/food"
+          >營養指南</nuxt-link
+        >
+        <nuxt-link class="nav-menu-item" exact-active-class="bg-blue4 bg-opacity-15" to="/bird"
+          >百科全書</nuxt-link
+        >
+        <nuxt-link class="nav-menu-item" exact-active-class="bg-blue4 bg-opacity-15" to="/hospital"
+          >醫護站</nuxt-link
+        >
+        <nuxt-link class="nav-menu-item" exact-active-class="bg-blue4 bg-opacity-15" to="/connect"
+          >聯繫我們</nuxt-link
+        >
       </div>
-    </transition>
+    </Transition>
   </div>
 </template>
 
 <style scoped>
-.nav-bg {
-  background-color: #ffffffac;
-  backdrop-filter: blur(5px);
+.nav-btn {
+  @apply bg-bg fixed right-0 top-0 z-20 flex w-[140px] items-center justify-center gap-[6px] bg-opacity-20 p-[10px] font-bold text-blue4 backdrop-blur-sm;
+  border-bottom: 1px solid var(--color-blue4);
+  border-left: 1px solid var(--color-blue4);
+  border-radius: 0 0 0 6px;
 }
 
-.hamburger {
-  width: 30px;
-  height: 20px;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  cursor: pointer;
+.nav-menu {
+  @apply fixed right-0 top-0 z-20 flex w-[140px] flex-col items-center justify-center bg-opacity-20 font-bold text-blue4 backdrop-blur-sm;
+  border-bottom: 1px solid var(--color-blue4);
+  border-left: 1px solid var(--color-blue4);
+  border-radius: 0 0 0 6px;
 }
 
-.hamburger div {
-  width: 100%;
-  height: 2px;
-  background-color: #231815;
-  transition: all 0.3s linear;
-  border-radius: 2px;
+.nav-menu-item {
+  @apply flex w-full items-center justify-center p-[10px];
 }
 
-.hamburger.open div:nth-child(1) {
-  transform: rotate(45deg) translate(3px, 7px);
+.fade-enter-active,
+.fade-leave-active {
+  transition: all 0.4s ease;
 }
 
-.hamburger.open div:nth-child(2) {
+.fade-enter-from,
+.fade-leave-to {
+  transform: translatey(-264px);
   opacity: 0;
-}
-
-.hamburger.open div:nth-child(3) {
-  transform: rotate(-45deg) translate(5px, -10px);
-}
-
-.menu {
-  /* max-height: 0; */
-  overflow: hidden;
-  transition: all 0.3s ease-out;
-}
-
-.menu.open {
-  /* max-height: 500px; */
-  transition: all 0.3s ease-out;
-}
-
-/* 确保过渡 "进入" 状态设置为不可见，然后过渡到可见 */
-.slide-enter-active,
-.slide-leave-active {
-  transition: opacity 0.5s ease;
-}
-.slide-enter-from,
-.slide-leave-to {
-  opacity: 0;
-}
-.slide-enter-to {
-  opacity: 1;
-}
-
-.nav-item-pc {
-  @apply transform leading-[28px] duration-200 hover:font-medium;
-}
-
-.nav-item-mb {
-  @apply block w-full transform py-4 text-center text-[20px] duration-200 hover:bg-slate-100;
-}
-
-.nav-item-btn-full-pc {
-  @apply rounded-[20px] border border-black bg-black px-10 py-[5px] text-white;
-}
-
-.nav-item-btn-pc {
-  @apply rounded-[20px] border border-black bg-white px-5 py-[5px] text-black;
 }
 </style>

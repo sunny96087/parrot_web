@@ -2,10 +2,5 @@
 export default defineNuxtConfig({
   devtools: { enabled: true },
   modules: ['@nuxtjs/tailwindcss', 'nuxt-swiper', 'nuxt-icon', '@pinia/nuxt'],
-  css: ['~/assets/css/main.css'],
-  build: {
-    extend(config, ctx) {
-      config.resolve.alias['~'] = path.join(__dirname, 'src')
-    }
-  }
+  css: ['~/assets/css/main.css']
 })

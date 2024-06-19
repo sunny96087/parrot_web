@@ -15,7 +15,7 @@
 
 body {
   font-family: 'Noto Sans TC', sans-serif;
-  letter-spacing: 1.05px;
+  letter-spacing: 1.25px;
   background: var(--color-bg);
 }
 
@@ -35,7 +35,7 @@ select:focus-visible {
 /* 圖片通用 */
 .pic-auto {
   width: 100%;
-  height: auto;
+  height: 100%;
   object-fit: cover;
   vertical-align: middle;
 }
@@ -46,13 +46,45 @@ select:focus-visible {
 }
 
 /* hover 效果 */
-/* hover 常用的 hover:bg-[#00000017] */
-.hover-opacity {
-  @apply transform duration-200 hover:opacity-80;
-}
 
 .hover-auto {
   @apply transform duration-200;
+}
+
+/* ? 頁面通用 */
+.cus-border {
+  @apply border border-blue4;
+}
+
+.cus-border-b {
+  @apply border-b border-blue4;
+}
+
+.cus-border-t {
+  @apply border-t border-blue4;
+}
+
+.cus-border-r {
+  @apply border-r border-blue4;
+}
+
+.cus-border-l {
+  @apply border-l border-blue4;
+}
+
+.cus-border-y {
+  @apply border-y border-blue4;
+}
+
+.cus-line-row {
+  @apply border-blue4;
+}
+
+/* todo hrrrrrr */
+
+/* hover 常用的 hover:bg-[#00000017] */
+.hover-opacity {
+  @apply transform duration-200 hover:opacity-80;
 }
 
 /* ? btn 按鈕 */

@@ -23,15 +23,18 @@ onUnmounted(() => {
 
 <template>
   <div class="app relative flex min-h-screen w-full flex-col">
-    <header class="sticky top-0 z-20">
-      <!-- <Header /> -->
+    <header class="z-20">
+      <Header />
     </header>
     <main class="page-wrapper grow">
-      <slot />
+      <div class="w-full">
+        <slot />
+      </div>
     </main>
+    <!--
     <footer>
-      <!-- <Footer /> -->
-    </footer>
+      <Footer /> 
+    </footer>-->
     <!-- 右下角的 回頂端 -->
     <!-- <div
       :class="{ 'is-scrolled': isScrolled }"
@@ -57,11 +60,12 @@ onUnmounted(() => {
 }
 
 .page-wrapper {
+  @apply mx-auto w-full max-w-[1200px] px-3 pb-5 pt-[52px] lg:px-5 lg:pt-[64px];
   /* max-width: 1200px; */
   width: 100%;
   /* margin: 0 auto; */
   display: flex;
-  gap: 28px;
+  /* gap: 28px; */
   /* padding: 40px 24px; */
   /* padding-bottom: 60px; */
   align-items: start;
