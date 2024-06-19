@@ -72,7 +72,7 @@ watch(
 
 <style scoped>
 .nav-btn {
-  @apply bg-bg fixed right-0 top-0 z-20 flex w-[140px] items-center justify-center gap-[6px] bg-opacity-20 p-[10px] font-bold text-blue4 backdrop-blur-sm;
+  @apply fixed right-0 top-0 z-20 flex w-[140px] items-center justify-center gap-[6px] bg-bg bg-opacity-20 p-[10px] font-bold text-blue4 backdrop-blur-sm;
   border-bottom: 1px solid var(--color-blue4);
   border-left: 1px solid var(--color-blue4);
   border-radius: 0 0 0 6px;
@@ -91,7 +91,7 @@ watch(
 
 .fade-enter-active,
 .fade-leave-active {
-  transition: all 0.4s ease;
+  transition: all 0.4s ease-in-out;
 }
 
 .fade-enter-from,

@@ -69,7 +69,6 @@ export function cancelDialog() {
  */
 
 // Loading
-/** 
 export const isLoading = ref(false)
 
 export function showLoading() {
@@ -79,4 +78,3 @@ export function showLoading() {
 export function hideLoading() {
   isLoading.value = false
 }
-*/
