@@ -9,10 +9,11 @@ export const APIStore = defineStore({
       // 開發
       // api: 'http://localhost:3666/',
       // ws: 'ws://localhost:3666',
-      // 線上
-      api: 'https://parrot-api-55iv.onrender.com/'
+      // 線上 https://parrot-api.2fishs.com/
+      api: 'https://parrot-api.2fishs.com/'
       // ws: '',
 
+      // api: 'https://parrot-api-55iv.onrender.com/'
       // userInfo: null as JsonObject | null,
       // tokenInfo: {
       //   token: '',
