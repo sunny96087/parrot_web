@@ -149,7 +149,7 @@ function searchFood() {
           點擊資料欄可以查看各食物詳細資料。
         </div>
 
-        <!-- ? 0 鮮食隨機配 -->
+        <!-- ? 0 可食用 -->
         <section v-if="mode === 0 && freshFoodInfo && freshFoodInfo.length" class="">
           <!-- ? food table > pc -->
           <div class="cus-table lg:hidden">
@@ -199,7 +199,7 @@ function searchFood() {
           </div>
         </section>
 
-        <!-- ? 1 指定鮮食算攝取量 -->
+        <!-- ? 1 不可食用 -->
         <section
           v-else-if="mode === 1 && poisonousFoodInfo && poisonousFoodInfo.length"
           class="text-sm sm:text-base"
@@ -222,17 +222,17 @@ function searchFood() {
 
           <!-- ? food table > pc -->
           <div class="cus-table hidden lg:block">
-            <div class="cus-table-row grid grid-cols-8">
+            <div class="cus-table-row grid grid-cols-6">
               <div class="cus-table-th">食物名稱</div>
-              <div class="cus-table-th">禁食說明</div>
+              <div class="cus-table-th col-span-5">禁食說明</div>
             </div>
             <div
-              class="cus-table-rows grid grid-cols-8"
+              class="cus-table-rows grid grid-cols-6"
               v-for="item in poisonousFoodInfo"
               :key="item._id"
             >
               <div class="cus-table-td">{{ item.name }}</div>
-              <div class="cus-table-td">{{ item.note }}</div>
+              <div class="cus-table-td col-span-5">{{ item.note }}</div>
             </div>
           </div>
         </section>

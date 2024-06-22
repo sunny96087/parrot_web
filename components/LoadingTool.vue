@@ -17,13 +17,14 @@ import { isLoading } from '~/store/eventBus'
 
 <style scoped>
 .spinner-container {
+  @apply bg-bg bg-opacity-70;
   position: fixed;
   inset: 0;
   z-index: 1300;
   display: flex;
   justify-content: center;
   align-items: center;
-  background-color: #28456b82;
+  /* background-color: #28456b82; */
 }
 
 /* .text-primary {
