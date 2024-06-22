@@ -124,6 +124,10 @@ select:focus-visible {
   @apply rounded-md border border-slate-200 bg-transparent px-3 py-[10px] text-[14px] sm:text-base;
 }
 
+.cus-input-blue4 {
+  @apply rounded-md border border-blue4 bg-transparent px-3 py-[10px] text-[14px] sm:text-base;
+}
+
 .cus-input-note {
   @apply text-[14px] text-slate-400;
 }
@@ -228,18 +232,18 @@ select:focus-visible {
 
 /* ? 彈窗 Modal z-100 */
 .modal-bg {
-  @apply fixed inset-0 z-[100] flex items-center justify-center bg-black bg-opacity-40 p-5;
+  @apply fixed inset-0 z-[100] flex items-center justify-center bg-bg bg-opacity-70 p-5;
 }
 
-.modal-box-white {
-  @apply relative max-h-full w-full max-w-[500px] border-[5px] bg-white p-[30px] pt-12 md:min-w-[500px];
+.modal-box-bg {
+  @apply relative max-h-full w-full max-w-[500px] rounded-md border border-blue4 bg-bg px-3 pb-5 pt-3 md:min-w-[500px];
 }
 
-.modal-box-black {
+/* .modal-box-black {
   @apply relative max-h-full w-full max-w-[740px] overflow-y-auto border-[5px] border-white bg-black p-4 pt-12 text-white md:min-w-[740px] md:p-[30px];
-}
+} */
 
-.modal-top {
+/* .modal-top {
   @apply mb-12 flex items-center justify-between;
 }
 
@@ -249,7 +253,7 @@ select:focus-visible {
 
 .modal-footer {
   @apply mt-[30px] flex justify-center gap-4;
-}
+} */
 
 /* ? 確認框 checkbox */
 /* 隱藏原生的 checkbox */
