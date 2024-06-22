@@ -87,11 +87,15 @@ select:focus-visible {
 }
 
 .cus-title-border-left {
-  @apply mb-3 border-l-2 border-blue4 px-3 py-[2px] text-[14px] font-medium text-blue4;
+  @apply mb-3 border-l-2 border-blue4 px-3 py-[2px] text-[14px] font-medium text-blue4 sm:text-base;
 }
 
 .cus-title-border-left-no {
-  @apply border-l-2 border-blue4 px-3 py-[2px] text-[14px] font-medium text-blue4;
+  @apply border-l-2 border-blue4 px-3 py-[2px] text-[14px] font-medium text-blue4 sm:text-base;
+}
+
+.cus-title-border-left-err {
+  @apply mb-3 border-l-2 border-red2 px-3 py-[2px] text-[14px] font-medium text-red2 sm:text-base;
 }
 
 .cus-intro {
@@ -113,11 +117,11 @@ select:focus-visible {
 }
 
 .cus-label {
-  @apply text-[14px] font-medium;
+  @apply text-[14px] font-medium sm:text-base;
 }
 
 .cus-input {
-  @apply rounded-md border border-slate-200 bg-transparent px-3 py-[10px] text-[14px];
+  @apply rounded-md border border-slate-200 bg-transparent px-3 py-[10px] text-[14px] sm:text-base;
 }
 
 .cus-input-note {
@@ -130,7 +134,7 @@ select:focus-visible {
 }
 
 .cus-label-radio {
-  @apply flex cursor-pointer items-center gap-2 text-[14px] font-medium;
+  @apply flex cursor-pointer items-center gap-2 text-[14px] font-medium sm:text-base;
 }
 
 /* 隱藏原始的 radio button */
@@ -170,7 +174,7 @@ select:focus-visible {
 
 /* ? btn 按鈕 */
 .cus-btn-primary {
-  @apply rounded-md bg-blue4 px-4 py-[10px] text-[14px] font-medium text-blue1;
+  @apply rounded-md bg-blue4 px-4 py-[10px] text-[14px] font-medium text-blue1 sm:text-base;
 }
 
 .cus-btn-primary:disabled {
@@ -179,7 +183,7 @@ select:focus-visible {
 
 /* ? table */
 .cus-table {
-  @apply w-full overflow-hidden rounded-lg border border-slate-200 text-[14px];
+  @apply w-full overflow-hidden rounded-lg border border-slate-200 text-[14px] sm:text-base;
 }
 
 .cus-table-row {

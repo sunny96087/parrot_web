@@ -27,7 +27,7 @@ watchEffect(() => {
   transform: translateX(-50%);
   bottom: 20px;
 
-  background-color: #bbb8f4d4;
+  background-color: var(--color-blue2);
   color: black;
   padding: 12px 16px;
   border-radius: 6px;
