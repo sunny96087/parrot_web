@@ -3,8 +3,14 @@ import { APIStore } from '~/store/apiService'
 const store = APIStore()
 import { showToast, openDialog, showLoading, hideLoading } from '~/store/eventBus'
 
+import { useGtag } from 'vue-gtag-next'
+const gtag = useGtag()
+
 onMounted(() => {
   wakeUpDB()
+
+  // gtag
+  gtag.event('page_view', { value: 'index' })
 })
 
 // 取得鸚鵡資訊
