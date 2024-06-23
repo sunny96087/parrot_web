@@ -2,6 +2,7 @@
 import { APIStore } from '~/store/apiService'
 const store = APIStore()
 import { showToast, openDialog, showLoading, hideLoading } from '~/store/eventBus'
+import { useGtag } from 'vue-gtag-next'
 
 const hospitalInfo: any = ref('')
 const keyword: any = ref('')
@@ -36,6 +37,10 @@ const regionOption = [
 
 onMounted(() => {
   getHospitalInfo()
+
+  // gtag
+  const gtag = useGtag()
+  gtag.event('page_view', { value: 'hospital' })
 })
 
 watch(region, () => {

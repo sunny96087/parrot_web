@@ -1,4 +1,4 @@
-// plugins/vue-gtag.ts
+// plugins/vue-gtag.client.ts
 
 // 引入 defineNuxtPlugin 函數，這是 Nuxt 3 中用於定義插件的方法。
 import { defineNuxtPlugin } from '#app'

@@ -2,18 +2,23 @@
 import { APIStore } from '~/store/apiService'
 const store = APIStore()
 import { showToast, openDialog, showLoading, hideLoading } from '~/store/eventBus'
+import { useGtag } from 'vue-gtag-next'
 
 const route = useRoute()
 const router = useRouter()
 
 const birdInfo: any = ref('')
-const currentId = ref('')
+const currentId: any = ref('')
 
 onMounted(() => {
   currentId.value = route.params.id
   console.log(currentId.value)
 
   getBirdInfo()
+
+  // gtag
+  const gtag = useGtag()
+  gtag.event('page_view', { value: 'birdInfo' })
 })
 
 // 取得鸚鵡資訊

@@ -2,6 +2,7 @@
 import { APIStore } from '~/store/apiService'
 const store = APIStore()
 import { showToast, openDialog, showLoading, hideLoading } from '~/store/eventBus'
+import { useGtag } from 'vue-gtag-next'
 
 const route = useRoute()
 const router = useRouter()
@@ -14,6 +15,10 @@ const sizeOption = ['小型', '中型', '大型']
 
 onMounted(() => {
   getBirdInfo()
+
+  // gtag
+  const gtag = useGtag()
+  gtag.event('page_view', { value: 'bird' })
 })
 
 watch(size, () => {

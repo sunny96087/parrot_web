@@ -45,6 +45,6 @@ export default defineNuxtConfig({
       ],
       link: [{ rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }]
     }
-  }
-  // plugins: ['~/plugins/vue-gtag.ts']
+  },
+  plugins: ['~/plugins/vue-gtag.client.ts']
 })

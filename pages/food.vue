@@ -2,6 +2,7 @@
 import { APIStore } from '~/store/apiService'
 const store = APIStore()
 import { showToast, openDialog, showLoading, hideLoading } from '~/store/eventBus'
+import { useGtag } from 'vue-gtag-next'
 
 const mode = ref(0)
 const freshFoodInfo: any = ref('')
@@ -19,6 +20,10 @@ const unfoodKeyword = ref('')
 onMounted(() => {
   getFoodInfo()
   getUnfoodInfo()
+
+  // gtag
+  const gtag = useGtag()
+  gtag.event('page_view', { value: 'food' })
 })
 
 // 取得可食用食物資料

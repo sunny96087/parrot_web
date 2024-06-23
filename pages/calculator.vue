@@ -2,6 +2,7 @@
 import { APIStore } from '~/store/apiService'
 const store = APIStore()
 import { showToast, openDialog, showLoading, hideLoading } from '~/store/eventBus'
+import { useGtag } from 'vue-gtag-next'
 
 const mode = ref(0)
 /**
@@ -51,6 +52,10 @@ watch(
 
 onMounted(() => {
   getFoods()
+
+  // gtag
+  const gtag = useGtag()
+  gtag.event('page_view', { value: 'calculator' })
 })
 
 // NOTE 鮮食隨機配

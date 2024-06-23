@@ -2,6 +2,7 @@
 import { APIStore } from '~/store/apiService'
 const store = APIStore()
 import { showToast, openDialog, showLoading, hideLoading } from '~/store/eventBus'
+import { useGtag } from 'vue-gtag-next'
 
 const contactPerson = ref('')
 const phone = ref('')
@@ -18,6 +19,12 @@ interface Data {
   feedback: string
   source?: string // 使 source 屬性成為可選的
 }
+
+onMounted(() => {
+  // gtag
+  const gtag = useGtag()
+  gtag.event('page_view', { value: 'connect' })
+})
 
 // 送出聯絡我們
 async function sendContact() {

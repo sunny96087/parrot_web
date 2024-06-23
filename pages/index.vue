@@ -4,12 +4,12 @@ const store = APIStore()
 import { showToast, openDialog, showLoading, hideLoading } from '~/store/eventBus'
 
 import { useGtag } from 'vue-gtag-next'
-const gtag = useGtag()
 
 onMounted(() => {
   wakeUpDB()
 
   // gtag
+  const gtag = useGtag()
   gtag.event('page_view', { value: 'index' })
 })
 
