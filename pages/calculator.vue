@@ -287,8 +287,8 @@ async function submitCalculateFeedIntake() {
         <!-- >> 0 鮮食隨機配 info -->
         <div class="cus-block-padding">
           <div class="flex gap-2">
-            <h2 class="cus-page-title">輸入基本資料</h2>
-            <span class="cus-input-note">*目前僅支援常見鸚鵡體重 > 不支援大於 1200 (g)</span>
+            <h2 class="cus-page-title shrink-0">輸入基本資料</h2>
+            <span class="cus-input-note">*目前僅支援計算 <= 1300 (g)</span>
           </div>
 
           <div class="cus-col-3">

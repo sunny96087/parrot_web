@@ -185,6 +185,10 @@ select:focus-visible {
   @apply cursor-not-allowed opacity-50;
 }
 
+.cus-btn-primary-outline {
+  @apply rounded-md border border-blue4 px-4 py-[10px] text-[14px] font-medium text-blue4 sm:text-base;
+}
+
 /* ? table */
 .cus-table {
   @apply w-full overflow-hidden rounded-lg border border-slate-200 text-[14px] sm:text-base;

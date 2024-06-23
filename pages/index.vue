@@ -1,4 +1,31 @@
-<script setup lang="ts"></script>
+<script setup lang="ts">
+import { APIStore } from '~/store/apiService'
+const store = APIStore()
+import { showToast, openDialog, showLoading, hideLoading } from '~/store/eventBus'
+
+onMounted(() => {
+  wakeUpDB()
+})
+
+// 取得鸚鵡資訊
+async function wakeUpDB() {
+  try {
+    const res = await store.apiWakeUpDB()
+    // console.log(res)
+
+    const result = res.data
+    if (result && result.status === 'success') {
+      console.log(result.data.message)
+    } else {
+      console.log(result.data.message)
+    }
+  } catch (error) {
+    console.log(error)
+  } finally {
+    hideLoading()
+  }
+}
+</script>
 <template>
   <div class="cus-border w-full">
     <!-- * mb -->

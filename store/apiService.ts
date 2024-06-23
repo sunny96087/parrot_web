@@ -54,6 +54,11 @@ export const APIStore = defineStore({
       return await axios.get(`${this.api}info/parrots?size=${data.size}&keyword=${data.keyword}`)
     },
 
+    // * 取得單一鸚鵡資料
+    async apiGetParrotInfo(data: JsonObject) {
+      return await axios.get(`${this.api}info/parrots/${data.id}`)
+    },
+
     // * 取得所有不可食用食物資料
     async apiGetAllPoisonousFoodInfo(data: JsonObject) {
       return await axios.get(`${this.api}info/poisonousFoods?keyword=${data.keyword}`)
@@ -69,6 +74,11 @@ export const APIStore = defineStore({
       return await axios.get(
         `${this.api}info/hospitals?region=${data.region}&keyword=${data.keyword}`
       )
+    },
+
+    // * 喚醒資料庫
+    async apiWakeUpDB() {
+      return await axios.get(`${this.api}info/wakeup`)
     },
 
     // todo 表單回饋 feedback
