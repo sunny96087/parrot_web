@@ -9,6 +9,12 @@ useHead({
       rel: 'icon',
       href: '/icon.png'
     }
+  ],
+  meta: [
+    {
+      name: 'google-site-verification',
+      content: 'ezYJ7T0oDpkV9XX_IDz-OqV3T187C5qDx_QGGu4igJo'
+    }
   ]
 })
 </script>
